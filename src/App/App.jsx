@@ -80,6 +80,14 @@ function App() {
     fetchData()
   }, [])
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await toyService.getAll()
+      setToys(data)
+    }
+    fetchData()
+  }, [])
+
   return (
     <>
       <Header user={user} handleLogout={handleLogout} />
