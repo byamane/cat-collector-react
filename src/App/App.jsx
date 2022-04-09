@@ -60,6 +60,14 @@ function App() {
     navigate('/')
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await catService.getAll()
+      setCats(data)
+    }
+    fetchData()
+  }, [])
+
   return (
     <>
       <Header user={user} handleLogout={handleLogout} />
